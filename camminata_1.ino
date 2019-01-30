@@ -26,7 +26,7 @@ void loop(){
   long distanza_1=0.034*durata_1/2;  
   //long distanza_2=0.034*durata_2/2;
   Serial.print("sensore 1: ");
-  Serial.println(distanza_1);
+  Serial.println(distanza_1); //provare serial.write
   
   digitalWrite(trig_2, LOW);
   digitalWrite(trig_2, HIGH);
@@ -35,7 +35,7 @@ void loop(){
   long durata_2=pulseIn(echo_2, HIGH);
   long distanza_2=0.034*durata_2/2;
   Serial.print("sensore 2: ");
-  Serial.println(distanza_2);
+  Serial.println(distanza_2); //provare serial.write
   delay(500);
   
   
