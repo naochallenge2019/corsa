@@ -1,23 +1,23 @@
 import serial
 
-ser = serial.Serial(
+s = serial.Serial(
 
     port = 'COM11',
     baudrate = 9600,
     )
 
-ser.isOpen()
+s.isOpen()
 
-print("connected to: " + ser.portstr)
+print("connected to: " + s.portstr)
 count = 1
 
 while True:
-    for line in ser.read():
+    for line in s.read():
 
         print(str(count) + str(': ') + chr(line))
         count = count + 1
 
-ser.close()
+s.close()
 
 
     
