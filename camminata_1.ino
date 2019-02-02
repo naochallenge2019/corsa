@@ -2,6 +2,7 @@ const int echo_1 = 2;
 const int trig_1 = 3;
 const int echo_2 = 6;
 const int trig_2 = 7;
+const int threshold = 10; //distanza in cm oltre la quale nao deve raddrizzarsi
 
 void setup() {
 
@@ -25,8 +26,12 @@ void loop(){
   //long durata_2=pulseIn(echo_2, HIGH);
   long distanza_1=0.034*durata_1/2;  
   //long distanza_2=0.034*durata_2/2;
-  Serial.print("sensore 1: ");
-  Serial.println(distanza_1); //provare serial.write
+  //Serial.print("sensore 1: ");
+  //Serial.println(distanza_1); //provare serial.write
+  if(distanza_1>Treshold){
+  
+  Serial.print("a"); // o Serial.write(), vedremo lunedì
+  }
   
   digitalWrite(trig_2, LOW);
   digitalWrite(trig_2, HIGH);
@@ -34,8 +39,10 @@ void loop(){
   digitalWrite(trig_2, LOW);
   long durata_2=pulseIn(echo_2, HIGH);
   long distanza_2=0.034*durata_2/2;
-  Serial.print("sensore 2: ");
-  Serial.println(distanza_2); //provare serial.write
+  if(distanza_2 < threshold){
+  
+  Serial.print("b");
+  }
   delay(500);
   
   
